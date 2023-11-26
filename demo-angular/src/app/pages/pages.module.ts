@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesRoutingModule } from './pages-routing.module';
-import { LayoutComponent } from '../components/layout/layout.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
