@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Person } from '../model/person';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,11 @@ export class PersonsService {
     private http: HttpClient
   ) { }
 
-  getAllPersons(): Observable<any> {
-    return this.http.get<any>(environment.urlBackend+'tasks');
+  getAllPersons(): Observable<Person> {
+    return this.http.get<Person>(environment.urlBackend+'tasks');
+  }
+
+  createPerson(person: Person): Observable<Person> {
+    return this.http.post<Person>(environment.urlBackend+'persons',person);
   }
 }

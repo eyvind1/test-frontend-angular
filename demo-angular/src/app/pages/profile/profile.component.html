@@ -1,1 +1,71 @@
-<p>profile works!</p>
+<div class="signupFrm">
+  <form class="form" [formGroup]="formPerson">
+    <h1 class="title">Register a Person</h1>
+
+    <div class="inputContainer">
+      <input type="text" class="input" formControlName="{{this.name}}" [ngClass]="{'is-invalid': formP['fieldName'].invalid && (formP['fieldName'].dirty || formP['fieldName'].touched)}">
+      <div class="invalid-feedback">
+        <div *ngIf="formP['fieldName'].errors?.['required']">
+          Required
+        </div>
+        <div *ngIf="formP['fieldName'].errors?.['minlength']">
+          The field must be more than 3 characters
+        </div>
+        <div *ngIf="formP['fieldName'].errors?.['maxlength']">
+          The field must be less than 10 characters
+        </div>
+        <div *ngIf="formP['fieldName'].errors?.['pattern']">
+          Only letters
+        </div>
+      </div>
+      <label class="label">Name</label>
+    </div>
+
+    <div class="inputContainer">
+      <input type="text" class="input" placeholder="a" formControlName="{{this.address}}" [ngClass]="{'is-invalid': formP['fieldAddress'].invalid && (formP['fieldAddress'].dirty || formP['fieldAddress'].touched)}">
+      <div class="invalid-feedback">
+        <div *ngIf="formP['fieldAddress'].errors?.['required']">
+          Required
+        </div>
+        <div *ngIf="formP['fieldAddress'].errors?.['minlength']">
+          The field must be more than 3 characters
+        </div>
+        <div *ngIf="formP['fieldAddress'].errors?.['maxlength']">
+          The field must be less than 10 characters
+        </div>
+
+      </div>
+      <label for="" class="label">Address</label>
+    </div>
+
+    <div class="inputContainer">
+      <input type="text" class="input" placeholder="a" formControlName="{{this.role}}" [ngClass]="{'is-invalid': formP['fieldRole'].invalid && (formP['fieldRole'].dirty || formP['fieldRole'].touched)}">
+      <div class="invalid-feedback">
+        <div *ngIf="formP['fieldRole'].errors?.['pattern']">
+          Required
+        </div>
+      </div>
+      <label for="" class="label">Role</label>
+    </div>
+
+    <div class="inputContainer">
+      <input type="text" class="input" placeholder="a" formControlName="{{this.age}}" [ngClass]="{'is-invalid': formP['fieldAge'].invalid && (formP['fieldAge'].dirty || formP['fieldAge'].touched)}">
+      <div class="invalid-feedback">
+        <div *ngIf="formP['fieldAge'].errors?.['min']">
+          The field must be more than 0
+        </div>
+        <div *ngIf="formP['fieldAge'].errors?.['max']">
+          The field must be less than 100
+        </div>
+        <div *ngIf="formP['fieldAge'].errors?.['pattern']">
+          The field must be a number
+        </div>
+      </div>
+      <label for="" class="label">Age</label>
+    </div>
+
+    <input type="submit" class="submitBtn" value="Register" (click)="registerPerson()">
+  </form>
+</div>
+
+

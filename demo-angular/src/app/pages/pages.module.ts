@@ -4,6 +4,9 @@ import { ComponentsModule } from '../components/components.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ProfileComponent } from './profile/profile.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,6 +19,10 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     ComponentsModule,
     PagesRoutingModule,
+    MatPaginatorModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class PagesModule { }
