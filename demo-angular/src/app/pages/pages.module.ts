@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatTableModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ]
 })
 export class PagesModule { }

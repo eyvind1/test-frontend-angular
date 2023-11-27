@@ -13,8 +13,8 @@ export class PersonsService {
     private http: HttpClient
   ) { }
 
-  getAllPersons(): Observable<Person> {
-    return this.http.get<Person>(environment.urlBackend+'tasks');
+  getAllPersons(): Observable<Person[]> {
+    return this.http.get<Person[]>(environment.urlBackend+'persons');
   }
 
   createPerson(person: Person): Observable<Person> {
