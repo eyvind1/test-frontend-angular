@@ -21,7 +21,7 @@
         <th *ngFor="let col of columns">
           {{ col.header }}
         </th>
-        <th>Acción</th>
+        <th *appRole="role">Acción</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
