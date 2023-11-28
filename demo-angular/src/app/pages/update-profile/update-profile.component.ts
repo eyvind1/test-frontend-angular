@@ -96,11 +96,10 @@ export class UpdateProfileComponent implements OnInit {
         name : this.f(this.name)?.value,
         address : this.f(this.address)?.value,
         role : this.f(this.role)?.value,
-        age : this.f(this.age)?.value,
+        age : Number(this.f(this.age)?.value),
       }
 
       this.personService.updatePerson(this.person.id!, updatePerson).subscribe(res =>{
-        console.log('actualizado');
         this.router.navigate(['dashboard'])
       })
 

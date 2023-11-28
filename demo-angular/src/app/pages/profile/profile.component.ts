@@ -78,7 +78,7 @@ export class ProfileComponent implements OnInit {
       this.person.name = this.f(this.name)?.value;
       this.person.address = this.f(this.address)?.value;
       this.person.role = this.f(this.role)?.value;
-      this.person.age = this.f(this.age)?.value;
+      this.person.age = Number(this.f(this.age)?.value);
 
       this.personService.createPerson(this.person).subscribe(res => {
         this.formPerson.reset();

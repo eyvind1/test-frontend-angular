@@ -24,3 +24,7 @@ button:hover {
 button:active {
   box-shadow: 1px 1px 3px ;
 }
+
+.margin {
+  margin-top: 2vh;
+}

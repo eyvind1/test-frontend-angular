@@ -10,7 +10,8 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
-
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { DirectivesModule } from '../directives/role.module';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     ReactiveFormsModule,
     FormsModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    RadioButtonModule,
+    DirectivesModule
   ]
 })
 export class PagesModule { }

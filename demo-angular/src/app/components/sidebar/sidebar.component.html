@@ -2,7 +2,7 @@
   <ul>
     <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="has-subnav">
       <a [routerLink]="[menuItem.path]">
-        <i class="fa fa-home fa-2x"></i>
+        <i class="fa {{menuItem.class}} fa-2x"></i>
         <span class="nav-text"> {{menuItem.title}} </span>
       </a>
     </li>

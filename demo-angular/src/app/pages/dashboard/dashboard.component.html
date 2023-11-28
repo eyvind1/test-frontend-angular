@@ -1,30 +1,56 @@
-<div class="card">
-  <p-table [columns]="cols" [value]="listPersons" [tableStyle]="{ 'min-width': '50rem' }">
-      <ng-template pTemplate="header" let-columns>
-          <tr>
-              <th *ngFor="let col of columns">
-                  {{ col.header }}
-              </th>
-              <th>
-                  Acción
-              </th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-rowData let-columns="columns">
-          <tr>
-              <td *ngFor="let col of columns">
-                  {{ rowData[col.field] }}
-              </td>
-              <td >
-                <button class="buttonc" (click)="updatePerson(rowData)" type="submit" id="edit-button">Edit</button>
+<h1 class="card justify-content-center margin">Role</h1>
 
-                <button class="buttonc" type="submit" id="end-editing">Delete</button>
-            </td>
-          </tr>
-      </ng-template>
+<div class="card flex justify-content-center">
+  <div class="flex flex-wrap gap-3">
+      <div class="field-checkbox" *ngFor="let role of roles">
+          <p-radioButton [value]="role" [inputId]="role.id" [(ngModel)]="selectedRole" (onClick)="changeRole()"></p-radioButton>
+          <label class="ml-2">{{role.name}}</label>
+      </div>
 
-  </p-table>
+  </div>
 </div>
 
+<div class="card margin">
+  <p-table
+    [columns]="cols"
+    [value]="listPersons"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th>Acción</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ rowData[col.field] }}
+        </td>
+        <td>
+          <button
+            class="buttonc"
+            (click)="updatePerson(rowData)"
+            type="submit"
+            id="edit-button"
+            *appRole="role"
+          >
+            Edit
+          </button>
 
-
+          <button
+            class="buttonc"
+            (click)="deletePerson(rowData)"
+            type="submit"
+            id="end-editing"
+            *appRole="role"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
