@@ -6,8 +6,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -15,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     DashboardComponent,
     ProfileComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatTableModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    TableModule,
+    DialogModule
   ]
 })
 export class PagesModule { }

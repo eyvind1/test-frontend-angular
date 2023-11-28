@@ -20,4 +20,12 @@ export class PersonsService {
   createPerson(person: Person): Observable<Person> {
     return this.http.post<Person>(environment.urlBackend+'persons',person);
   }
+
+  updatePerson(idPerson: string, person: any): Observable<Person> {
+    return this.http.patch<Person>(environment.urlBackend+'persons/'+idPerson,person);
+  }
+
+  deletePerson(idPerson: string) {
+    return this.http.delete<any>(environment.urlBackend+'persons/'+idPerson);
+  }
 }

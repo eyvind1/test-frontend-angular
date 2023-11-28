@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonsService } from 'src/app/services/persons.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Person } from 'src/app/model/person';
+import { Router } from '@angular/router';
+import { SharedataService } from 'src/app/services/sharedata.service';
+
+interface Column {
+  field: string;
+  header: string;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -10,60 +16,44 @@ import { Person } from 'src/app/model/person';
 })
 export class DashboardComponent implements OnInit {
 
-  listPersons: any
+  cols!: Column[];
+  listPersons: Array<Person> = []
+
+
   constructor(
     private personsService: PersonsService,
-    private modalService: NgbModal,
+    private router: Router,
+    private sendPerson: SharedataService
   ) { }
 
   ngOnInit() {
     this.getAllPersons();
+    this.cols = [
+      { field: 'name', header: 'Name' },
+      { field: 'address', header: 'Address' },
+      { field: 'role', header: 'Role' },
+      { field: 'age', header: 'Age' }
+  ];
   }
 
 
   getAllPersons() {
     this.personsService.getAllPersons().subscribe(res => {
-      console.log(res);
+      this.listPersons = res
     });
   }
 
-  /**
-   * Close event modal
-   */
-  closeEventModal() {
 
-    this.modalService.dismissAll();
+  updatePerson(person:any) {
+    this.sendPerson.setData(person);
+    this.router.navigate(['update']);
   }
-
-  saveEvent() {
-    /* if (this.formEditarTiendas.valid) {
-
-    }
-    this.submitted = true; */
-  }
-
-  /**
-   * Open center modal
-   * @param DataModalEditPerson center modal data
-   */
-  OpenModalEditPerson(DataModalEditPerson: any, data: Person) {
-    /* this.crearFormulario();
-    this.f(this.nombre_tienda).setValue(data.nombre_sede);
-    this.f(this.direccion_tienda).setValue(data.direccion);
-    this.f(this.ruc_tienda).setValue(data.ruc);
-    this.f(this.telefono_tienda).setValue(data.telefono);
-    this.sede.id_sede = data.id_sede;
-    this.editLogoSede = data.logoURL;
-    this.editlogoDOWNLOAD = data.logoDOWNLOAD;
-    this.modalService.open(DataModalEditStore, { centered: true, windowClass: 'modal-holder' }); */
-  }
-
-
-
 
   deletePerson(idPerson:string) {
 
   }
+
+
 }
 
 
