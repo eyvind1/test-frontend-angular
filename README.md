@@ -9,7 +9,7 @@ Install the latest version of node js
 $ npm install -g @angular/cli@13.0.4
 ```
 
-## Clone the project and install modules 
+## Clone the project and install the modules in the same directory
 ```bash
 $ npm install --force
 ```
